@@ -33,7 +33,9 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const ResultsScreen(),
+            builder: (context) => const ResultsScreen(
+              chosenAnswers: [],
+            ),
           ),
         );
       }
