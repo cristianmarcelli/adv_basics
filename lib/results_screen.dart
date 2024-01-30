@@ -23,6 +23,7 @@ class ResultsScreen extends StatelessWidget {
       );
     }
 
+    print("HELLO " + summary.toString());
     return summary;
   }
 
@@ -82,12 +83,12 @@ class ResultsScreen extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(
-              height: 30,
-            ),
             QuestionSummary(getSummaryData()),
             const SizedBox(
               height: 30,
+            ),
+            const SizedBox(
+              height: 60,
             ),
             TextButton(
               onPressed: () {
