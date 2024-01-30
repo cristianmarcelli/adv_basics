@@ -23,6 +23,12 @@ class _QuizState extends State<Quiz> {
     });
   }
 
+  void setResultsScreen() {
+    setState(() {
+      activeScreen = 'results-screen';
+    });
+  }
+
   void chooseAnswer(String answer) {
     selectedAnswers.add(answer);
     if (selectedAnswers.length == questions.length) {
@@ -37,40 +43,39 @@ class _QuizState extends State<Quiz> {
 
   @override
   Widget build(BuildContext context) {
-    Widget screenWidget = StartQuiz(switchScreen);
-
-    if (activeScreen == 'questions-screen') {
-      screenWidget = QuestionsScreen(
-        onSelectAnswer: chooseAnswer,
-      );
-    }
-
-    if (activeScreen == 'results-screen') {
-      screenWidget = ResultsScreen(
-        chosenAnswers: selectedAnswers,
-      );
-    }
-
     return MaterialApp(
       home: Scaffold(
         body: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Colors.white,
-                  Colors.green,
-                  Color.fromARGB(255, 4, 43, 16),
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.white,
+                Colors.green,
+                Color.fromARGB(255, 4, 43, 16),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
             ),
-            child: Center(
-              child: activeScreen == 'start-screen'
-                  ? StartQuiz(switchScreen)
-                  : QuestionsScreen(onSelectAnswer: chooseAnswer),
-            )),
+          ),
+          child: Center(
+            child: currentPage,
+          ),
+        ),
       ),
     );
+  }
+
+  Widget get currentPage {
+    if (activeScreen == 'questions-screen') {
+      return QuestionsScreen(
+        onSelectAnswer: chooseAnswer,
+        setResultsScreen: setResultsScreen,
+      );
+    } else if (activeScreen == 'results-screen') {
+      return ResultsScreen(
+        chosenAnswers: selectedAnswers,
+      );
+    }
+    return StartQuiz(switchScreen);
   }
 }

@@ -17,12 +17,15 @@ class StartQuiz extends StatelessWidget {
           color: const Color.fromARGB(92, 255, 255, 255),
         ),
         const SizedBox(height: 40),
-        Text('Learn Flutter the fun way!',
-            style: GoogleFonts.montserrat(
-              color: Colors.white,
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            )),
+        Text(
+          'Learn Flutter the fun way!',
+          textAlign: TextAlign.center,
+          style: GoogleFonts.montserrat(
+            color: Colors.white,
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         const SizedBox(height: 40),
         ElevatedButton.icon(
           onPressed: startTest,

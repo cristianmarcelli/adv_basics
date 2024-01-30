@@ -11,7 +11,6 @@ class QuestionSummary extends StatelessWidget {
       children: summaryData.map((data) {
         return Row(
           children: [
-            Text(((data['question'] as int) + 1).toString()),
             Column(
               children: [
                 Text(data['question'] as String),
