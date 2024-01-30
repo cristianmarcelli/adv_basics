@@ -1,4 +1,3 @@
-import 'package:adv_basics/styled_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
