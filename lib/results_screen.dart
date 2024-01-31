@@ -1,7 +1,7 @@
-import 'package:adv_basics/quiz.dart';
-import 'package:flutter/material.dart';
 import 'package:adv_basics/data/questions.dart';
 import 'package:adv_basics/questions_summary.dart';
+import 'package:adv_basics/quiz.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ResultsScreen extends StatelessWidget {
@@ -12,7 +12,7 @@ class ResultsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final numTotalQuestions = questions.length;
-    final numCorrectoQuestions = summaryData
+    final numCorrectQuestions = summaryData
         .where((data) => data['user_answer'] == data['correct_answer'])
         .length;
 
@@ -22,7 +22,7 @@ class ResultsScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'You answered $numCorrectoQuestions out of $numTotalQuestions questions correctly!',
+            'You answered $numCorrectQuestions out of $numTotalQuestions questions correctly!',
             style: GoogleFonts.montserrat(
               color: Colors.white,
               fontSize: 24,
@@ -67,7 +67,7 @@ class ResultsScreen extends StatelessWidget {
         },
       );
     }
-
     return summary;
   }
+
 }

@@ -1,6 +1,6 @@
+import 'package:adv_basics/data/questions.dart';
 import 'package:adv_basics/models/answer_button.dart';
 import 'package:flutter/material.dart';
-import 'package:adv_basics/data/questions.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class QuestionsScreen extends StatefulWidget {
@@ -22,32 +22,6 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   var currentQuestionIndex = 0;
 
-  // void answerQuestion(String selectedAnswer) {
-  //   widget.onSelectAnswer(selectedAnswer);
-  //   setState(() {
-  //     // currentQuestionIndex++;
-
-  //     // ??????????
-
-  //     if (currentQuestionIndex < questions.length - 1) {
-  //       currentQuestionIndex++;
-  //     } else {
-  //       // Se è stata risposta l'ultima domanda, passa alla schermata dei risultati
-  //       widget.onSelectAnswer(selectedAnswer); // Aggiungi la risposta finale
-  //       Navigator.push(
-  //         context,
-  //         MaterialPageRoute(
-  //           builder: (context) => const ResultsScreen(
-  //             chosenAnswers: [],
-  //           ),
-  //         ),
-  //       );
-  //     }
-
-  //     // ??????????
-  //   });
-  // }
-
   void answerQuestion(String selectedAnswer) {
     widget.onSelectAnswer(selectedAnswer);
     if (currentQuestionIndex < questions.length - 1) {
@@ -62,10 +36,6 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(BuildContext context) {
     final currentQuestion = questions[currentQuestionIndex];
-
-    // Si rompe qui
-    print("currentquestioindex " + currentQuestionIndex.toString());
-    print("currentQuestion " + currentQuestion.text);
 
     return Container(
       margin: const EdgeInsets.all(65),

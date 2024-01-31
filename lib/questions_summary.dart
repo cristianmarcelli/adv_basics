@@ -23,8 +23,7 @@ class QuestionSummary extends StatelessWidget {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(color: Colors.black87, width: 1.0),
-                      color: Colors
-                          .white, // Puoi cambiare il colore a tuo piacimento
+                      color: Colors.white,
                     ),
                     child: Center(
                       child: Text(
