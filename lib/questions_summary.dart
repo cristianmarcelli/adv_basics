@@ -8,7 +8,7 @@ class QuestionSummary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 250,
+      height: 300,
       child: SingleChildScrollView(
         child: Column(
           children: summaryData.map((data) {
@@ -18,7 +18,7 @@ class QuestionSummary extends StatelessWidget {
               child: Row(
                 children: [
                   Container(
-                    width: 30,
+                    width: 50,
                     height: 30,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
@@ -39,11 +39,13 @@ class QuestionSummary extends StatelessWidget {
                       children: [
                         Text(
                           data['question'] as String,
-                          style: const TextStyle(color: Colors.black),
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         const SizedBox(height: 5),
-                        Text(data['user_answer'] as String),
-                        Text(data['correct_answer'] as String),
+                        buildAnswerRow(data),
                       ],
                     ),
                   ),
@@ -54,5 +56,51 @@ class QuestionSummary extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget buildAnswerRow(Map<String, dynamic> data) {
+    String userAnswer = data['user_answer'] as String;
+    String correctAnswer = data['correct_answer'] as String;
+
+    if (userAnswer == correctAnswer) {
+      return Row(
+        children: [
+          Text(correctAnswer),
+          const SizedBox(width: 5),
+          const Icon(
+            Icons.check_circle,
+            color: Colors.blue,
+            size: 18,
+          ),
+        ],
+      );
+    } else {
+      return Column(
+        children: [
+          Row(
+            children: [
+              Text(userAnswer),
+              const SizedBox(width: 5),
+              const Icon(
+                Icons.cancel,
+                color: Colors.red,
+                size: 18,
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Text(correctAnswer),
+              const SizedBox(width: 5),
+              const Icon(
+                Icons.check_circle,
+                color: Colors.blue,
+                size: 18,
+              ),
+            ],
+          ),
+        ],
+      );
+    }
   }
 }

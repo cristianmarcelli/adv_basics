@@ -18,7 +18,7 @@ class StartQuiz extends StatelessWidget {
         ),
         const SizedBox(height: 40),
         Text(
-          'Learn Flutter the fun way!',
+          'Ricordi il compleanno di...?',
           textAlign: TextAlign.center,
           style: GoogleFonts.montserrat(
             color: Colors.white,
@@ -31,7 +31,7 @@ class StartQuiz extends StatelessWidget {
           onPressed: startTest,
           style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white, foregroundColor: Colors.black),
-          icon: const Icon(Icons.arrow_right_alt),
+          icon: const Icon(Icons.cake),
           label: const Text('Start Quiz'),
         )
       ],

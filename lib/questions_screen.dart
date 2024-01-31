@@ -47,7 +47,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             currentQuestion.text,
             style: GoogleFonts.montserrat(
               color: Colors.white,
-              fontSize: 24,
+              fontSize: 15,
               fontWeight: FontWeight.bold,
             ),
             textAlign: TextAlign.center,

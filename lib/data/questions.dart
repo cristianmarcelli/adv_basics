@@ -1,46 +1,55 @@
 import 'package:adv_basics/models/quiz_question.dart';
 
 const questions = [
-  QuizQuestion('How are Flutter UIs built?', [
-    'By combining widgets in code',
-    'By combining widgets in a visual editor',
-    'By defining widgets in config files',
-    'By using XCode for iOS and Android Studio for Android',
+  QuizQuestion('Quand\'è nato Simone Martella?', [
+    '30 Marzo 1998',
+    '3 Marzo 1998',
+    '13 Marzo 1999',
+    '3 Maggio 1998',
   ]),
   QuizQuestion(
-    'What\'s the purpose of a StatefulWidget?',
+    'Quand\'è nato Giovanni Marra?',
     [
-      'Update UI as data changes',
-      'Update data as UI changes',
-      'Ignore data changes',
-      'Render UI that does not depend on data',
+      '4 Febbraio 1999',
+      '4 Gennaio 1999',
+      '3 Febbraio 1998',
+      '5 Febbraio 1999',
     ],
   ),
   QuizQuestion(
-    'Which widget should you try to use more often: StatelessWidget or StatefulWidget?',
+    'Quand\'è nato Cristian Marcelli?',
     [
-      'StatelessWidget',
-      'StatefulWidget',
-      'Both are equally good',
-      'None of the above',
+      '24 Gennaio 1998',
+      '25 Gennaio 1998',
+      '23 Gennaio 1998',
+      '26 Gennaio 1998',
     ],
   ),
   QuizQuestion(
-    'What happens if you change data in a StatelessWidget?',
+    'Quand\'è nato Daniele D\'alessandro?',
     [
-      'The UI is not updated',
-      'The UI is updated',
-      'The closest StatefulWidget is updated',
-      'Any nested StatefulWidgets are updated',
+      '10 Maggio 1998',
+      '30 Maggio 1998',
+      '30 Giugno 1998',
+      '10 Agosto 1998',
     ],
   ),
   QuizQuestion(
-    'How should you update data inside of StatefulWidgets?',
+    'Quand\'è nato Marat Tynybekov?',
     [
-      'By calling setState()',
-      'By calling updateData()',
-      'By calling updateUI()',
-      'By calling updateState()',
+      '18 Novembre 1996',
+      '30 Novembre 1996',
+      '28 Novembre 1996',
+      '17 Novembre 1996',
+    ],
+  ),
+  QuizQuestion(
+    'Quand\'è nato Mauro Fidenzi?',
+    [
+      '8 Gennaio 1998',
+      '6 Gennaio 1998',
+      '10 Gennaio 1998',
+      '12 Gennaio 1998',
     ],
   ),
 ];

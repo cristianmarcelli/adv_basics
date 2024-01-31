@@ -22,10 +22,10 @@ class ResultsScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'You answered $numCorrectQuestions out of $numTotalQuestions questions correctly!',
+            'Hai risposto correttamente a $numCorrectQuestions domande su $numTotalQuestions!',
             style: GoogleFonts.montserrat(
               color: Colors.white,
-              fontSize: 24,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
             textAlign: TextAlign.center,
