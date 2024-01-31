@@ -13,6 +13,7 @@ class QuestionSummary extends StatelessWidget {
           children: [
             Column(
               children: [
+                Text(((data['question_index'] as int) + 1).toString()),
                 Text(data['question'] as String),
                 const SizedBox(
                   height: 5,
