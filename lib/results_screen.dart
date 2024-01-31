@@ -9,7 +9,61 @@ class ResultsScreen extends StatelessWidget {
 
   final List<String> chosenAnswers;
 
-  List<Map<String, Object>> getSummaryData() {
+  @override
+  Widget build(BuildContext context) {
+    final numTotalQuestions = questions.length;
+    final numCorrectoQuestions = summaryData
+        .where((data) => data['user_answer'] == data['correct_answer'])
+        .length;
+
+    return SizedBox(
+      width: double.infinity,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'You answered $numCorrectoQuestions out of $numTotalQuestions questions correctly!',
+            style: GoogleFonts.montserrat(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(
+            height: 50,
+          ),
+          QuestionSummary(summaryData),
+          const SizedBox(
+            height: 50,
+          ),
+          // TextButton(
+          //   onPressed: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => const Quiz()),
+          //     );
+          //   },
+          //   child: const Text('Restart Quiz!'),
+          // ),
+          ElevatedButton.icon(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Quiz()),
+              );
+            },
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white, foregroundColor: Colors.black),
+            icon: const Icon(Icons.restart_alt),
+            label: const Text('Restart Quiz'),
+          )
+        ],
+      ),
+    );
+  }
+
+  List<Map<String, Object>> get summaryData {
     final List<Map<String, Object>> summary = [];
 
     for (var i = 0; i < chosenAnswers.length; i++) {
@@ -23,85 +77,6 @@ class ResultsScreen extends StatelessWidget {
       );
     }
 
-    print("HELLO " + summary.toString());
     return summary;
-  }
-
-  // @override
-  // Widget build(BuildContext context) {
-  //   return SizedBox(
-  //     width: double.infinity,
-  //     child: Container(
-  //       margin: const EdgeInsets.all(40),
-  //       child: Column(
-  //         mainAxisAlignment: MainAxisAlignment.center,
-  //         children: [
-  //           const Text('You answered X out of Y questions correctly!'),
-  //           const SizedBox(
-  //             height: 30,
-  //           ),
-  //           QuestionSummary(getSummaryData()),
-  //           const SizedBox(
-  //             height: 30,
-  //           ),
-  //           TextButton(
-  //             onPressed: () {},
-  //             child: const Text('Restart Quiz!'),
-  //           )
-  //         ],
-  //       ),
-  //     ),
-  //   );
-  // }
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: Container(
-        decoration: const BoxDecoration(
-          // Add this decoration to the Container
-          gradient: LinearGradient(
-            colors: [
-              Colors.white,
-              Colors.green,
-              Color.fromARGB(255, 4, 43, 16),
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'You answered X out of Y questions correctly!',
-              style: GoogleFonts.montserrat(
-                color: Colors.white,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            QuestionSummary(getSummaryData()),
-            const SizedBox(
-              height: 30,
-            ),
-            const SizedBox(
-              height: 60,
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Quiz()),
-                );
-              },
-              child: const Text('Restart Quiz!'),
-            ),
-          ],
-        ),
-      ),
-    );
   }
 }
