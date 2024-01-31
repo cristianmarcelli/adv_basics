@@ -8,12 +8,13 @@ class QuestionSummary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 400,
+      height: 250,
       child: SingleChildScrollView(
         child: Column(
           children: summaryData.map((data) {
             return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
               child: Row(
                 children: [
                   Container(
@@ -21,21 +22,26 @@ class QuestionSummary extends StatelessWidget {
                     height: 30,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.blue, // Puoi cambiare il colore a tuo piacimento
+                      border: Border.all(color: Colors.black87, width: 1.0),
+                      color: Colors
+                          .white, // Puoi cambiare il colore a tuo piacimento
                     ),
                     child: Center(
                       child: Text(
                         ((data['question_index'] as int) + 1).toString(),
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.black),
                       ),
                     ),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 20),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(data['question'] as String),
+                        Text(
+                          data['question'] as String,
+                          style: const TextStyle(color: Colors.black),
+                        ),
                         const SizedBox(height: 5),
                         Text(data['user_answer'] as String),
                         Text(data['correct_answer'] as String),

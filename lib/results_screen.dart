@@ -37,15 +37,6 @@ class ResultsScreen extends StatelessWidget {
           const SizedBox(
             height: 50,
           ),
-          // TextButton(
-          //   onPressed: () {
-          //     Navigator.push(
-          //       context,
-          //       MaterialPageRoute(builder: (context) => const Quiz()),
-          //     );
-          //   },
-          //   child: const Text('Restart Quiz!'),
-          // ),
           ElevatedButton.icon(
             onPressed: () {
               Navigator.push(
